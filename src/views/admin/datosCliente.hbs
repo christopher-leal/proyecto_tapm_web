@@ -1,0 +1,79 @@
+<h1>Datos del cliente</h1>
+<div class="row mx-auto mt-4">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Domicilio</th>
+                    <th scope="col">Fecha nacimiento</th>
+                    <th scope="col">Codigo INE</th>
+                    <th scope="col">Ocupacion</th>
+                    <th scope="col">QR tarjeta</th>
+                    <th scope="col">Numero tarjeta</th>
+                    <th scope="col">Tipo cliente</th>
+                    <th scope="col">Linea debito/credito</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="mx-auto">
+                <tr>
+                    <th scope="row">{{cliente.nombre}} {{cliente.apellidoP}} {{cliente.apellidoM}} </th>
+                    <th scope="row">{{cliente.numCasa}} {{cliente.calle}} {{cliente.colonia}} {{cliente.ciudad}} </th>
+                    <td>{{cliente.fechaNac}} </td>
+                    <td>{{cliente.codIne}} </td>
+                    <td>{{cliente.ocupacion}} </td>
+                    <td><a href="{{cliente.qrTarjeta}}" download="{{cliente.numTarjeta}}"><img
+                                src="{{cliente.qrTarjeta}}" alt="codigo qr"></a>
+                    </td>
+                    <td>{{cliente.numTarjeta}} </td>
+                    <td>{{cliente.tipoCliente}} </td>
+                    <td>{{cliente.lineaDebito}} </td>
+                    <td>
+                        {{#if cliente.status}}
+                        <input type="checkbox" checked disabled>
+                        {{else}}
+                        <input type="checkbox" disabled>
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{#if cliente.numTarCred}}
+                        <a href="/admin/asignarCredito/{{cliente.id}}" class="btn btn-info disabled">Credito
+                            asignado</a>
+                        {{else}}
+                        <a href="/admin/asignarCredito/{{cliente.id}}" class="btn btn-info">Asignar credito</a>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{#if cliente.numTarCred}}
+                <tr>
+                    <th scope="row">{{cliente.nombre}} {{cliente.apellidoP}} {{cliente.apellidoM}} </th>
+                    <th scope="row">{{cliente.numCasa}} {{cliente.calle}} {{cliente.colonia}} {{cliente.ciudad}} </th>
+                    <td>{{cliente.fechaNac}} </td>
+                    <td>{{cliente.codIne}} </td>
+                    <td>{{cliente.ocupacion}} </td>
+                    <td><a href="{{cliente.qrTarCred}}" download="{{cliente.numTarCred}}"><img
+                                src="{{cliente.qrTarCred}}" alt="codigo qr"></a>
+                    </td>
+                    <td>{{cliente.numTarCred}} </td>
+                    <td>{{cliente.tipoCliente}} </td>
+                    <td>{{cliente.lineaCredito}} </td>
+                    <td>
+                        {{#if cliente.status}}
+                        <input type="checkbox" checked disabled>
+                        {{else}}
+                        <input type="checkbox" disabled>
+                        {{/if}}
+                    </td>
+                    <td>
+                        <a href="/asignarCredito/{{cliente.id}}" class="btn btn-info disabled">Credito asignado</a>
+                    </td>
+                </tr>
+                {{/if}}
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

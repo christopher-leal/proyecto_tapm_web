@@ -1,0 +1,20 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Cliente</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each compras}}
+        <tr>
+            <th>{{producto}}</th>
+            <th>{{precio}}</th>
+            <th>{{fecha}}</th>
+            <th>{{cliente.nombre}} {{cliente.apellidoP}} {{cliente.apellidoM}} </th>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

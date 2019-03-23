@@ -1,0 +1,90 @@
+<div class="col-md-10 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h1>Registrar Cliente</h1>
+        </div>
+        <div class="card-body">
+            {{#if err}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{err}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {{/if}}
+
+            <form action="/admin/registrarCliente" method="POST" enctype="multipart/form-data">
+                <div class="row center">
+                    <div class="form-group col-md-3">
+                        <input type="text" name="nombre" placeholder="Escribe tu nombre" class="form-control" autofocus
+                            value="{{body.nombre}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" name="apellidoP" placeholder="Escribe tu apellido paterno"
+                            class="form-control" required value="{{body.apellidoP}}">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <input type="text" name="apellidoM" placeholder="Escribe tu apellido materno"
+                            class="form-control" required value="{{body.apellidoM}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="email" name="email" placeholder="Ej. email@email.com" class="form-control" required
+                            value="{{body.email}}">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" name="numCasa" placeholder="# de casa" class="form-control" required
+                            value="{{body.numCasa}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" name="calle" placeholder="Escribe tu calle" class="form-control" required
+                            value="{{body.calle}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" name="colonia" placeholder="Escribe tu colonia" class="form-control" required
+                            value="{{body.colonia}}">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="number" name="cp" placeholder="Escribe tu cp" class="form-control" min="00000"
+                            value="58000" min="58000" max="58999" required value="{{body.cp}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="date" name="fechaNac" class="form-control" required value="{{body.fechaNac}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" name="codIne" placeholder="Escribe tu codigo del ine" class="form-control"
+                            required value="{{body.codIne}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="number" name="lineaDebito" placeholder="Escribe la cantidad a ingresar"
+                            class="form-control" required min="1" value="{{body.lineaDebito}}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <select name="ocupacion" class="form-control" required>
+                            <option value="default">Ocupacion</option>
+                            <option value="estudiante">Estudiante</option>
+                            <option value="trabajador">Trabajador</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label for="exampleFormControlFile1">Archivo de la INE frontal</label>
+                        <input type="file" class="form-control-file" name="ineFront">
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label for="exampleFormControlFile1">Archivo de la INE frontal</label>
+                        <input type="file" class="form-control-file" name="ineTras">
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label for="exampleFormControlFile1">Archivo de comprobante de domicilio</label>
+                        <input type="file" class="form-control-file" name="compDom">
+                    </div>
+
+                    <input type="submit" value="Registrar" class="btn btn-outline-success btn-block">
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

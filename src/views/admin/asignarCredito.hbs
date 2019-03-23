@@ -1,0 +1,30 @@
+<div class="col-md-10 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h1>Asignar credito</h1>
+        </div>
+        <div class="card-body">
+            {{#if err}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{err.message}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {{/if}}
+
+            <form action="/admin/asignarCredito/{{cliente.id}}" method="POST">
+                <div class="row center">
+                    <div class="form-group col-md-8">
+                        <p>Linea de credito que se le asignara al cliente <strong>{{cliente.nombre}}
+                                {{cliente.apellidoP}} {{cliente.apellidoM}}</strong> es en base a su linea de debito
+                        </p>
+                    </div>
+                    <input type="submit" value="Confirmar" class="btn btn-outline-primary btn-block">
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

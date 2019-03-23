@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">Node Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {{#if user.numTarjeta}}
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/cliente/panelCliente">Home</a>
+                    </li>
+                </ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Operaciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/cliente/comprar">Comprar</a>
+                        <a class="dropdown-item" href="/cliente/retirarEfectivo">Retirar efectivo</a>
+                        <a class="dropdown-item" href="/cliente/historialCompras">Historial de compras</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/cliente/logout">Logout</a>
+                    </div>
+                </li>
+                {{else}}
+                {{#if user}}
+
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/admin/panelAdmin">Home</a>
+                    </li>
+                </ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Clientes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/clientes">Ver clientes</a>
+                        <a class="dropdown-item" href="/admin/registrarCliente">Registrar Cliente</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    </div>
+                </li>
+                {{else}}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/cliente/signin">Signin</a>
+                </li>
+                {{/if}}
+
+                {{/if}}
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

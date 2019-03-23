@@ -1,0 +1,33 @@
+<div class="col-md-10 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h1>Verificacion de codigo de activacion</h1>
+        </div>
+        <div class="card-body">
+            {{#if err}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{err.message}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {{/if}}
+
+            <form action="/admin/verificacion/{{cliente.id}}" method="POST">
+                <div class="row center">
+                    <div class="form-group col-md-8">
+                        <label for="codigo">Tu codigo de verificacion es <strong>{{cliente.codVerif}}</strong> confirma
+                            que este codigo sea correcto!</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="number" name="codigo" placeholder="Codigo" class="form-control" autofocus>
+                    </div>
+
+                    <input type="submit" value="Confirmar" class="btn btn-outline-primary btn-block">
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

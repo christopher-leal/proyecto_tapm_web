@@ -1,0 +1,40 @@
+<h1>Lista de clientes</h1>
+<div class="row mx-auto mt-4">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="mx-auto">
+                {{numTar}}
+                {{#each cliente}}
+                <tr>
+                    <th scope="row">{{nombre}} {{apellidoP}} {{apellidoM}} </th>
+                    <td>{{email}} </td>
+                    <td>
+                        {{#if status}}
+                        <input type="checkbox" checked disabled>
+                    <td>
+                        <a href="/admin/datosCliente/{{id}}" class="btn btn-info">Ver cliente</a>
+                    </td>
+                    {{else}}
+                    <input type="checkbox" disabled>
+                    <td>
+                        <a href="/admin/verificacion/{{id}}" class="btn btn-info">Activar cuenta</a>
+                    </td>
+                    {{/if}}
+                    </td>
+
+                </tr>
+                {{/each }}
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
