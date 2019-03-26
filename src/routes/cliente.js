@@ -144,7 +144,7 @@ router.post("/clienteMovil/comprar", (req, res) => {
       res.redirect("/cliente/compra");
     }
     let cliente = await Cliente.findOneAndUpdate({ _id: id }, { new: true });
-    if (cliente.lineaDebito > 0) {
+    if (cliente.lineaDebito > 0 && cantidad <= cliente.lineaDebito) {
       cliente.lineaDebito -= precio;
       cliente.save();
       return res.json({
